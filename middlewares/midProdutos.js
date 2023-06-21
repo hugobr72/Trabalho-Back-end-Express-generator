@@ -1,7 +1,7 @@
 const connection = require('../configs/Db');
 
 const getAllProdutos = async (query) => {
-  connection.connect()
+  
   let resService = await connection.promise().query(
     query
   ).then(([rows, fields]) => {
@@ -12,7 +12,7 @@ const getAllProdutos = async (query) => {
 }
 
 const insertProdutos = async (query) => {
-  connection.connect()
+  
   const resultPost = await connection.promise().query(
     query
   ).then(([rows, fields]) => {
@@ -22,7 +22,7 @@ const insertProdutos = async (query) => {
   return resultPost;
 }
 const updateProduto = async (query) => {
-  connection.connect()
+  
   const resultPut = await connection.promise().query(
     query
   ).then(([rows, fields]) => {
@@ -35,7 +35,7 @@ const updateProduto = async (query) => {
 
 }
 const deleteProduto = async (query) => {
-  connection.connect()
+  
   const resultDelete = await connection.promise().query(
     query
   ).then(([rows, fields]) => {
