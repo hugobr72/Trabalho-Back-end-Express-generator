@@ -7,6 +7,7 @@ const getService = async () => {
     const query = 'SELECT * FROM produtos'
     
     let resService = await getAllProdutos(query)
+    return resService
   } catch (error) {
     console.log(error)
     return { error: "Erro do servidor" }
@@ -44,7 +45,6 @@ const putService = async (body) => {
     const queryUpdate = `UPDATE produtos
     SET preco = ${body.preco}
     WHERE id = ${body.id};`
-    connection.connect()
     const resultPut = await putService(queryUpdate)
     return resultPut
   } catch (error) {
