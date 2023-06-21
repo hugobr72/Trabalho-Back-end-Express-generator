@@ -31,6 +31,7 @@ const postService = async (body) => {
     const queryInsert = `INSERT INTO produtos (nome, descricao, preco, data_atualizacao) VALUE ('${produto.nome}' ,'${produto.descricao}' ,'${produto.preco}' ,${produto.data_atualizacao}  )`
 
     const resultPost = await insertProdutos(queryInsert)
+    return resultPost
   } catch (error) {
     console.log(error)
     return { error: "Erro do servidor" }
