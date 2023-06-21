@@ -1,11 +1,11 @@
 const { getService, postService, putService, deleteService } = require('../services/clienteService')
 
-const getController = async (req, res, next) => {
+const getController = async (req, res) => {
   const serviceGet = await getService();
   return res.status(200).json(serviceGet)
 }
 
-const postController = async (req, res, next) => {
+const postController = async (req, res) => {
   if (!req.body) {
     res.status(400).json({ "error": "body sem dados!" })
     return
@@ -15,7 +15,7 @@ const postController = async (req, res, next) => {
   return res.status(200).json(resService)
 }
 
-const putController = async (req, res, next) => {
+const putController = async (req, res) => {
   if (!req.body.id) {
     res.status(400).json({ "error": "ID não informado!" })
     return
@@ -25,7 +25,7 @@ const putController = async (req, res, next) => {
   return res.status(200).json(putResService)
 }
 
-const deleteController = async (req, res, next) => {
+const deleteController = async (req, res) => {
   if (!req.body.id) {
     res.status(400).json({ "error": "ID não informado!" })
     return
